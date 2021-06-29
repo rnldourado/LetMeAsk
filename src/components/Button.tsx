@@ -1,29 +1,15 @@
-// type ButtonProps = {
-//     text?: String;
-//     //* "?:" tranforma a propriedade em opcional
-// }
+import { ButtonHTMLAttributes } from 'react'
+
+import '../styles/button.scss';
+
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
 
-// export function Button(props: ButtonProps){
-    //     return(
-        //         <button>{props.text || 'Clique aqui'}</button>
-        //     )
-        // }
-        
-import { useState } from "react";
 
-export function Button(){
-    //let counter = 0;
-
-    const [counter, setCounter] = useState(0)
-
-    function increment() {
-        setCounter(counter + 1);
-    }
+export function Button(props: ButtonProps){
 
     return (
-        <button onClick={increment}>
-            {counter}
-        </button>
+        <button className="button" {...props}/>
+
     )
 }
