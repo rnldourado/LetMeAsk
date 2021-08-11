@@ -4,8 +4,8 @@ import { useParams } from 'react-router-dom'
 
 import logoImg from '../assets/images/logo.svg'
 
-import { Button } from '../components/Button';
-import { RoomCode } from '../components/RoomCode';
+import { Button } from '../components/Button/index';
+import { RoomCode } from '../components/RoomCode/index';
 import { useAuth } from '../hooks/useAuth';
 import { database } from '../services/firebase';
 
@@ -50,7 +50,7 @@ export function Room() {
 
     roomRef.on('value', room => {
       const databaseRoom = room.val();
-      const firebaseQuestions: FirebaseQuestions = databaseRoom.question ?? {};
+      const firebaseQuestions: FirebaseQuestions = databaseRoom.questions ?? {};
 
       const parsedQuestions = Object.entries(firebaseQuestions).map(([key, value]) => {
         return {
